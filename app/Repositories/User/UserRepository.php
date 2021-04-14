@@ -3,7 +3,7 @@
 namespace App\Repositories\User;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use App\Models\User;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -35,6 +35,11 @@ class UserRepository implements UserRepositoryInterface
         $model = $this->model->find($id);
         $model->update($data);
         return $model;
+    }
+
+    public function updateModel($md){
+        $md->save();
+        return $md;
     }
 
     // remove record from the database

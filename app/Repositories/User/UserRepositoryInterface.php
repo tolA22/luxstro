@@ -16,4 +16,6 @@ interface UserRepositoryInterface
     public function findByColumn($condition);
 
     public function whereBetween($column,$data);
+
+    public function updateModel($model);
 }
