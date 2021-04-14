@@ -9,6 +9,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UserCommentRequest extends FormRequest
 {
+    use ResponseTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,7 +27,7 @@ class UserCommentRequest extends FormRequest
      */
     public function rules()
     {
-        $passwords = ["password1*"];
+        $passwords = ["Password1*"];
         return [
 
             "comments"=>"required",

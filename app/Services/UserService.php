@@ -19,14 +19,14 @@ class UserService
         $this->UserRepository = $UserRepository;
     }
 
-    public function findByColumnModel($request){
-        return $this->UserRepository->findByColumn($request);
+    public function user($id){
+        return $this->UserRepository->show($id);
     }
-    
+
     public function comment($request){
         // get the user using the id
-        $user = $this->UserRepository->show($id);
-        $user->comment .="\n". $request["comments"];
+        $user = $this->UserRepository->show($request["id"]);
+        $user->comments .=$request["comments"]."\n";
         // updating the user comment
         $user = $this->UserRepository->updateModel($user);
         return $user;
