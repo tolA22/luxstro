@@ -24,7 +24,7 @@ class UserCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            ////
         ];
     }
 }
