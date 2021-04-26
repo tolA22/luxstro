@@ -14,4 +14,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/{id}', [UserController::class,'viewComment']);
+Route::get('/', function(){
+    dd("helo");
+});
