@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\ResponseTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UserCommentRequest extends FormRequest
+class LoginUserRequest extends FormRequest
 {
-    use ResponseTrait;
+    use ResponseTrait,EncryptionTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,12 +27,11 @@ class UserCommentRequest extends FormRequest
      */
     public function rules()
     {
-        $passwords = ["Password1*"];
+        
         return [
 
-            "comments"=>"required",
-            "password"=>"required|in:".implode(",",$passwords),
-            "id"=>"required|exists:users,id",
+            "email"=>"required|exists:users,email",
+            "password"=>"required"
 
         ];
     }

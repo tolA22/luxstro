@@ -7,7 +7,8 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
 
-    protected $repositories = ['User'];
+    protected $repositories = ['User','Space','PropertyType','PropertyGuest','Media','ApartmentInfo','Amenity'];
+    
     /**
      * Register any application services.
      *

@@ -65,13 +65,15 @@ trait ResponseTrait
 	}
  
     public function error($message="",$code){
+        
         if($message instanceof MessageBag){
             foreach($message->getmessages() as $key => $value){
 
                 $message = "'{$key}' : {$value[0]}";
                 break;
             }
-        }
+        }  
+              
 
         return response()->json([
             'status'=>$this->FailureStatus,

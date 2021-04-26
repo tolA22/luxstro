@@ -72,7 +72,7 @@ class Handler extends ExceptionHandler
             }
 
             if ($exception instanceof HttpException) {
-                
+                print("http mode");
                 return $this->error($exception->getMessage(), $exception->getStatusCode());
             }
 
@@ -82,7 +82,6 @@ class Handler extends ExceptionHandler
             }
 
             if($exception instanceof DecryptException){
-                
                 return $this->error($exception->getMessage(), $this->code422);
             }
             if($exception instanceof ClientException){
@@ -91,8 +90,7 @@ class Handler extends ExceptionHandler
             }
 
             if ($exception instanceof Exception) {
-                
-                return $this->error($exception->getMessage(), $this->code404);
+                return $this->error($exception->getMessage(), $this->code422);
             }
         });
     }
